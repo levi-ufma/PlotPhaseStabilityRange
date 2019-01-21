@@ -9,14 +9,14 @@ Created on Sat Jan  05 05:45:00 2019
 """
 import matplotlib.pyplot as plt
 import numpy as np
-from mu_to_temp2_2 import mu_to_temperature as mu2t
+from mu_to_temp import mu_to_temperature as mu2t
 
 ######## Input data ########
 # Phases, initial and final chemical potential at which they are stable. 
 # Bar colors, label colors. Element to which the system is open (Li, Na, O).
 Phase = ['SnO_2','WO_3','MnO_2','Mn_2O_3','Mn_3O_4','MnWO_4']
-mu_i = [-4.936,-4.936,-4.936,-5.659,-6.468,-5.887]
-mu_f = [-8.017,-7.554,-5.659,-6.468,-7.377,-8.030]
+mu_i = [-4.93552791875,-4.93552791875,-4.93552791875,-5.658827941874999,-6.467741869375012,-5.886984983124987]
+mu_f = [-8.017093547499998,-7.554040039999997,-5.658827941874999,-6.467741869375012,-7.376891950000004,-8.030107460000005]
 BarColor = ['orchid','silver','lightblue','orange','tomato','lightgreen']
 OpenTo = 'O'
 
@@ -36,7 +36,7 @@ Xmin,Xmax = Xlim = 0, 1350
 BarHeight = 0.7
 PhaseLabelSize = 14
 # Y axis range; minor and major ticks spacing; tick label size.
-Ymin,Ymax = Ylim = BarHeight-1, len(Phase)
+Ymin,Ymax = Ylim = BarHeight-1, len(Phase)-3
 MinorTickSpacing,MajorTickSpacing = 50, 150
 TickFontSize = 11
 #Axes labels size and their distance from borders.
@@ -44,6 +44,7 @@ AxisFontSize = 16
 LabelShift = 10
 # Grid transparency in %
 Transparency = 75
+
 
 
 ######## Processing of input data ########
@@ -149,15 +150,19 @@ for n in range(0,len(Phase)):
         Xf[n] = Xmax
     if BarColor[n] in ['black','Black','brown','Brown','navy','Navy','blue','Blue','green','Green']:
         LabelColor[n] = 'white'
-    Phase[n]='$\mathbf{'+Phase[n]+'}$'
+    Phase[n]='${'+Phase[n]+'}$'
+Xf[1] = 563.45
 # Calculate range and center of X axis quantity for each phase. Generate y positions.
-Xr=(np.array(Xf) - np.array(Xi)).tolist()
-Xc=((np.array(Xf) + np.array(Xi))/2).tolist()
-BarYPos=np.arange(len(Phase))
+Xr = (np.array(Xf) - np.array(Xi)).tolist()
+Xc = ((np.array(Xf) + np.array(Xi))/2).tolist()
+BarYPos = np.arange(len(Phase))
+BarYPos[3] = BarYPos[2]
+BarYPos[4] = BarYPos[2]
+BarYPos[5] = BarYPos[1]
 
 
 ######## Plot generation ########
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,2), dpi=100)
 # Set plot limits.
 ax.set(xlim=Xlim, ylim=Ylim, autoscale_on=False)
 # Generate bars.
@@ -172,7 +177,9 @@ ax.set_ylabel(YLabel, fontsize=AxisFontSize, labelpad = LabelShift)
 # Set major and minor ticks spacing, direction, and respective label size
 ax.xaxis.set_major_locator(plt.MultipleLocator(MajorTickSpacing))
 ax.xaxis.set_minor_locator(plt.MultipleLocator(MinorTickSpacing))
-ax.tick_params(axis='both',which='both', direction='in', labelsize=TickFontSize)
+ax.tick_params(axis='both',which='both', direction='in', labelsize=TickFontSize, width=0.8)
+ax.tick_params(axis='both',which='minor', length=3)
+ax.tick_params(axis='both',which='major', length=5)
 ax.set_yticks([])
 # Set vertical grid lines. Choose if they follow only major ticks,
 # minor ticks or both. Set grid transparency.
