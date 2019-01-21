@@ -25,8 +25,9 @@ from pymatgen.analysis.phase_diagram import GrandPotentialPhaseDiagram, \
 #from graf.mu_to_T import print_T_corresponding_to_mu_equals
 # import mu_to_T
 from mu_to_temp import mu_to_temperature
+import config
 
-imprimir = mu_to_temperature()
+#imprimir = mu_to_temperature()
 
 
 def plot_pd(pd, show_unstable=False):
@@ -61,7 +62,7 @@ def get_gcpd_data(gcpdobj=None):
 
 
 if __name__ == "__main__":
-    MAPI_KEY = "key"  # You must change this to your Materials API key! (or set MAPI_KEY env variable)
+    MAPI_KEY = config.KEY["key"] # You must change this to your Materials API key! (or set MAPI_KEY env variable)
     system = ["Li", "B", "O"]  # system we want to get open PD for
     # system = ["Li", "Fe", "P", "O"]  # alternate system example
 
@@ -106,6 +107,15 @@ if __name__ == "__main__":
 
 
             plot_pd(gcpd, False)
+
+
+
+
+
+
+
+
+
 
 
 
