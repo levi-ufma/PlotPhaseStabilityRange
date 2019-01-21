@@ -61,7 +61,7 @@ def get_gcpd_data(gcpdobj=None):
 
 
 if __name__ == "__main__":
-    MAPI_KEY = "Fvlb5EsNq71JxDy3"  # You must change this to your Materials API key! (or set MAPI_KEY env variable)
+    MAPI_KEY = "key"  # You must change this to your Materials API key! (or set MAPI_KEY env variable)
     system = ["Li", "B", "O"]  # system we want to get open PD for
     # system = ["Li", "Fe", "P", "O"]  # alternate system example
 
