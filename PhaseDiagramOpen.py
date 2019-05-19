@@ -24,7 +24,7 @@ from pymatgen.analysis.phase_diagram import GrandPotentialPhaseDiagram, \
 
 #from graf.mu_to_T import print_T_corresponding_to_mu_equals
 # import mu_to_T
-from mu_to_temp import mu_to_temperature
+from Thermodynamics import mu_to_temperature
 import config
 
 #imprimir = mu_to_temperature()
