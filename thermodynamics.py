@@ -133,6 +133,6 @@ class Thermodynamics:
 
 if __name__ == "__main__":
     mu = Thermodynamics()
-    print(mu.print_mu_corresponding_to_temperature_equals(273))
+    print(mu.print_mu_corresponding_to_temperature_equals(276))
 
     print(mu.print_temperature_corresponding_to_mu_equals(-4.93552791875))
