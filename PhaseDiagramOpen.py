@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr  4 16:53:08 2018
-
-@author: jherfson
-"""
-
 """
 This is a basic example of how to create, plot, and analyze OPEN Phase Diagrams using the pymatgen
 codebase and Materials Project database. To run this example, you should:
@@ -98,14 +90,8 @@ if __name__ == "__main__":
 
             toplot.append(get_gcpd_data(gcpd))
 
-            print(get_gcpd_data(gcpd), min_chempot, max_chempot)
-            #printf1 = imprimir.print_temperature_corresponding_to_mu_equals(max_chempot)
-            #printf2 = imprimir.print_temperature_corresponding_to_mu_equals(min_chempot)
-            #print(printf1, printf2)
-
-            #print('===========================================')
-
-
+           
+           
             plot_pd(gcpd, False)
 
 
